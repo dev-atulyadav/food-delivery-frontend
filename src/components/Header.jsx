@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ShoppingCart, User, Menu, X, ChefHat } from "lucide-react";
+import { ShoppingCart, User, Menu, X, ChefHat, User2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Header = () => {
@@ -36,9 +36,7 @@ const Header = () => {
   return (
     <motion.header
       className={`fixed top-0 w-full z-50 transition-all duration-300 backdrop-blur-xl ${
-        isScrolled
-          ? " bg-white/30 shadow-lg"
-          : "bg-slate-900/20"
+        isScrolled ? " bg-white/30 shadow-lg" : "bg-slate-900/20"
       }`}
       initial={{ y: -100 }}
       animate={{ y: 0 }}
@@ -65,7 +63,9 @@ const Header = () => {
             {navLink.map((item, idx) => (
               <motion.button
                 key={idx}
-                className={`${isScrolled?"text-black":"text-white"} hover:text-orange-500 font-medium transition-colors duration-200`}
+                className={`${
+                  isScrolled ? "text-black" : "text-white"
+                } hover:text-orange-500 font-medium transition-colors duration-200`}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -77,18 +77,27 @@ const Header = () => {
           {/* Actions */}
           <div className="flex items-center space-x-4">
             <motion.button
+              onClick={() => (window.location.href = "/auth/user")}
               className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
             >
-              <ShoppingCart className="w-5 h-5 text-slate-600" />
+              <User2 className="w-5 h-5 text-slate-300" />
+            </motion.button>
+            <motion.button
+              onClick={() => (window.location.href = "/cart")}
+              className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <ShoppingCart className="w-5 h-5 text-slate-300" />
               <span className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 text-white text-xs rounded-full flex items-center justify-center">
                 3
               </span>
             </motion.button>
 
             <motion.button
-            onClick={() => (window.location.href = "/auth")}
+              onClick={() => (window.location.href = "/auth")}
               className="hidden sm:flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-200"
               whileHover={{
                 scale: 1.05,
@@ -127,15 +136,15 @@ const Header = () => {
               transition={{ duration: 0.2 }}
             >
               <nav className="px-4 py-6 space-y-4">
-                {["Home", "Menu", "About", "Contact"].map((item) => (
+                {navLink.map((item,idx) => (
                   <motion.a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
+                    key={idx}
+                    href={item.link}
                     className="block text-slate-600 hover:text-orange-500 font-medium py-2"
                     whileHover={{ x: 10 }}
                     onClick={() => setIsMenuOpen(false)}
                   >
-                    {item}
+                    {item.name}
                   </motion.a>
                 ))}
                 <motion.button

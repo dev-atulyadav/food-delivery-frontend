@@ -2,6 +2,32 @@ import { motion } from "framer-motion";
 import { ChefHat, Truck } from "lucide-react";
 
 const Footer = () => {
+  const quickLinks = [
+    {
+      name: "Home",
+      link: "/",
+    },
+    {
+      name: "Menu",
+      link: "/menu",
+    },
+    {
+      name: "About Us",
+      link: "/about",
+    },
+    {
+      name: "Contact",
+      link: "/contact",
+    },
+    {
+      name: "FAQ",
+      link: "/faq",
+    },
+    {
+      name: "Support",
+      link: "/support",
+    },
+  ];
   return (
     <footer className="bg-gradient-to-br from-slate-900 to-slate-800 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -52,19 +78,17 @@ const Footer = () => {
             >
               <h3 className="text-xl font-semibold mb-6">Quick Links</h3>
               <ul className="space-y-3">
-                {["Home", "Menu", "About Us", "Contact", "FAQ", "Support"].map(
-                  (link) => (
-                    <li key={link}>
-                      <motion.a
-                        href="#"
-                        className="text-slate-300 hover:text-white transition-colors duration-200"
-                        whileHover={{ x: 5 }}
-                      >
-                        {link}
-                      </motion.a>
-                    </li>
-                  )
-                )}
+                {quickLinks.map((item) => (
+                  <li key={item.name}>
+                    <motion.a
+                      href={item.link}
+                      className="text-slate-300 hover:text-white transition-colors duration-200"
+                      whileHover={{ x: 5 }}
+                    >
+                      {item.name}
+                    </motion.a>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           </div>

@@ -225,13 +225,13 @@ const UserProfile = () => {
           <div className="flex space-x-2">
             {[
               { id: "profile", label: "Profile", icon: User },
-              { id: "orders", label: "Recent Orders", icon: ShoppingBag },
+              { id: "orders", label: "Orders", icon: ShoppingBag },
               { id: "cart", label: "Cart", icon: ShoppingCart }
             ].map((tab) => (
               <motion.button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`flex-1 flex items-center justify-center space-x-2 py-3 px-6 rounded-xl transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center space-x-2 py-3 px-2 rounded-xl transition-all duration-300 ${
                   activeTab === tab.id
                     ? "bg-gradient-to-r from-orange-400 to-red-500 text-white shadow-lg"
                     : "text-white/60 hover:text-white hover:bg-white/10"
@@ -513,7 +513,7 @@ const UserProfile = () => {
                           transition={{ delay: index * 0.1 }}
                           className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl p-6 hover:bg-white/15 transition-all duration-300"
                         >
-                          <div className="flex items-center justify-between">
+                          <div className="flex sm:items-center justify-between flex-col sm:flex-row gap-3">
                             <div className="flex items-center space-x-4">
                               <img
                                 src={item.image}

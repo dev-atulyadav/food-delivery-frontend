@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ChefHat, Truck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const quickLinks = [
@@ -69,7 +70,7 @@ const Footer = () => {
           </div>
 
           {/* Quick Links */}
-          <div>
+          {/* <div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -80,18 +81,19 @@ const Footer = () => {
               <ul className="space-y-3">
                 {quickLinks.map((item) => (
                   <li key={item.name}>
-                    <motion.a
-                      href={item.link}
-                      className="text-slate-300 hover:text-white transition-colors duration-200"
-                      whileHover={{ x: 5 }}
-                    >
-                      {item.name}
-                    </motion.a>
+                    <Link to={item.link} reloadDocument={true}>
+                      <motion.div
+                        className="text-slate-300 hover:text-white transition-colors duration-200"
+                        whileHover={{ x: 5 }}
+                      >
+                        {item.name}
+                      </motion.div>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </motion.div>
-          </div>
+          </div> */}
 
           {/* Contact Info */}
           <div>

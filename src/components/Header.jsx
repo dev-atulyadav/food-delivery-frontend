@@ -139,15 +139,16 @@ const Header = () => {
             >
               <nav className="px-4 py-6 space-y-4">
                 {navLink.map((item, idx) => (
-                  <motion.a
-                    key={idx}
-                    href={item.link}
-                    className="block text-slate-600 hover:text-orange-500 font-medium py-2"
-                    whileHover={{ x: 10 }}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </motion.a>
+                  <Link to={item.link} key={idx} reloadDocument={true}>
+                    <motion.div
+                      className="block text-slate-600 hover:text-orange-500 font-medium py-2"
+                      whileHover={{ x: 10 }}
+                    >
+                      <span onClick={() => setIsMenuOpen(false)}>
+                        {item.name}
+                      </span>
+                    </motion.div>
+                  </Link>
                 ))}
                 <motion.button
                   className="w-full flex items-center justify-center space-x-2 px-4 py-3 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-full font-medium shadow-lg mt-4"

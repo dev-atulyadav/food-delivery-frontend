@@ -76,38 +76,40 @@ const Header = () => {
 
           {/* Actions */}
           <div className="flex items-center space-x-4">
-            <motion.button
-              onClick={() => (window.location.href = "/auth/user")}
-              className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <User2 className="w-5 h-5 text-slate-300" />
-            </motion.button>
-            <motion.button
-              onClick={() => (window.location.href = "/cart")}
-              className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-            >
-              <ShoppingCart className="w-5 h-5 text-slate-300" />
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 text-white text-xs rounded-full flex items-center justify-center">
-                3
-              </span>
-            </motion.button>
-
-            <motion.button
-              onClick={() => (window.location.href = "/auth")}
-              className="hidden sm:flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-200"
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 10px 30px rgba(251, 146, 60, 0.4)",
-              }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <User className="w-4 h-4" />
-              <span>Login</span>
-            </motion.button>
+            <Link to="/auth/user">
+              <motion.button
+                className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <User2 className="w-5 h-5 text-slate-300" />
+              </motion.button>
+            </Link>
+            <Link to="/cart">
+              <motion.button
+                className="relative p-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-200"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <ShoppingCart className="w-5 h-5 text-slate-300" />
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-orange-500 text-white text-xs rounded-full flex items-center justify-center">
+                  3
+                </span>
+              </motion.button>
+            </Link>
+            <Link to="/auth">
+              <motion.button
+                className="hidden sm:flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-orange-400 to-red-500 text-white rounded-full font-medium shadow-lg hover:shadow-xl transition-all duration-200"
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 10px 30px rgba(251, 146, 60, 0.4)",
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <User className="w-4 h-4" />
+                <span>Login</span>
+              </motion.button>
+            </Link>
 
             {/* Mobile menu button */}
             <motion.button
@@ -136,7 +138,7 @@ const Header = () => {
               transition={{ duration: 0.2 }}
             >
               <nav className="px-4 py-6 space-y-4">
-                {navLink.map((item,idx) => (
+                {navLink.map((item, idx) => (
                   <motion.a
                     key={idx}
                     href={item.link}

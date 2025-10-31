@@ -1,16 +1,14 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
+import { RouterProvider } from "react-router-dom";
+import router from "./router/routes";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
-const App = () => {
+function App() {
   return (
-    <>
-    <Header/>
-    <Outlet />
-    <Footer/>
-    </>
-  )
+    <Provider store={store}>
+        <RouterProvider router={router} />
+    </Provider>
+  );
 }
 
-export default App
+export default App;

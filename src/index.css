@@ -5,4 +5,34 @@
 }
 body {
   overflow-x: hidden;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, Segoe UI,
+    Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background: radial-gradient(1200px 800px at 10% 10%, rgba(255,255,255,0.06), transparent),
+              radial-gradient(1000px 700px at 90% 20%, rgba(255,119,198,0.05), transparent),
+              radial-gradient(900px 600px at 50% 90%, rgba(120,219,255,0.06), transparent),
+              #0b1220;
+  color-scheme: dark light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --brand-start: #f97316; /* orange-500 */
+  --brand-end: #ef4444; /* red-500 */
+}
+
+/* Accessible focus styles */
+*:focus-visible {
+  outline: 2px solid color-mix(in oklab, var(--brand-start) 60%, white 40%);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Subtle default transitions for interactive elements */
+button, a, input, select, textarea {
+  transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease, box-shadow 200ms ease, transform 200ms ease;
 }
